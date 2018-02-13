@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<section class="head">
+  <h1>{{category.name}}</h1>
+  <span>Created By:</span>
+  <span class="creator">{{creator.username}}</span>
+</section>
+<section class="flash">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li> <strong> {{ message }} </strong> </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+</section>
+<section id="content">
+  <section id="main-menu">
+    <a href="{{url_for('editCategory', category_name=category.name)}}">
+      <button id="edit-category">Edit {{category.name}}</button>
+    </a>
+    <a href="{{url_for('newItem', category_name = category.name)}}">
+      <button id="new-item">Add Item</button>
+    </a>
+    <a href="{{url_for('deleteCategory', category_name = category.name)}}">
+      <button id="delete-category">Delete {{category.name}}</button>
+    </a>
+  </section>
+  <section id="item-list" class="list">
+    {% if items !=[] %}
+    <h2>Items</h2>
+    {% for i in items %}
+    <div class="item">
+      <a href="{{url_for('showOneItem', category_name=category.name, item_name=i.name)}}">
+        <h3>{{i.name}}</h3>
+      </a>
+      <p>{{i.description}}</p>
+      <p>{{i.size}}</p>
+      <a href="{{url_for('editItem', category_name=category.name, item_name=i.name)}}">
+        <button id="edit">Edit</button>
+      </a>
+      <a href="{{url_for('deleteItem', category_name=category.name, item_name=i.name)}}">
+        <button id="delete">Delete</button>
+      </a>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+</section>
+
+{% endblock %}

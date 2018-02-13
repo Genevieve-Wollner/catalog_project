@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<section class="head">
+  <a href="{{url_for('showAllItems', category_name=category.name)}}">
+    <h1>{{category.name}}</h1>
+  </a>
+  <span>Created By:</span>
+  <span class="creator">{{creator.username}}</span>
+</section>
+<section class="flash">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li> <strong> {{ message }} </strong> </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+</section>
+  <section id="item-list" class="list">
+    {% if items !=[] %}
+    <div class="item">
+      <h3>{{item.name}}</h3>
+      <p>{{item.description}}</p>
+      <p>{{item.size}}</p>
+      <a href="{{url_for('editItem', category_name=category.name, item_name=item.name)}}">
+        <button id="edit">Edit</button>
+      </a>
+      <a href="{{url_for('deleteItem', category_name=category.name, item_name=item.name)}}">
+        <button id="delete">Delete</button>
+      </a>
+    </div>
+  </section>
+  {% endif %}
+</section>
+
+{% endblock %}

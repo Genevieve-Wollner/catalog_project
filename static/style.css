@@ -1,0 +1,181 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  color: #318d37;
+  font-size: 18px;
+}
+
+body {
+  background-color: #daffa8;
+}
+
+h1 {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  color: #731753;
+  font-size: 7vw;
+  margin: 0;
+}
+
+h2 {
+  font-weight: 600;
+  color: #4ea729;
+  font-size: 28px;
+}
+
+h3 {
+  font-weight: 900;
+  color: #87b634;
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+a {
+  text-decoration: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+a:hover {
+  color: #731753;
+}
+
+label {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+p {
+  padding: 1%;
+}
+
+input {
+  border: 0;
+  width: 100%;
+  border-bottom: 2px solid #318d37;
+}
+
+textarea {
+  border: 2px solid #318d37;
+  width: 100%;
+}
+
+button {
+  border-radius: 8px;
+  background-color: inherit;
+  border: 2px solid #318d37;
+  color: inherit;
+  padding: 2%;
+}
+
+button:hover {
+  color: #731753;
+}
+
+form {
+  padding-top: 4%;
+}
+
+strong {
+  font-weight: 900;
+  color: #000;
+}
+
+#main-menu {
+  width: 100%;
+}
+
+#content {
+  padding: 5%;
+}
+
+#edit {
+  padding: 3px;
+  font-size: 14px;
+}
+
+#delete {
+  padding: 3px;
+  font-size: 14px;
+}
+
+#signinButton {
+  padding: 3%;
+  margin: auto;
+}
+
+#header {
+  display: -webkit-flex;
+  display: flex;
+  padding: 1%;
+}
+
+.list {
+  width: 100%;
+}
+
+.container {
+  background-color: #fff;
+  max-width: 800px;
+  margin: auto;
+  padding: 1%;
+  border-radius: 16px;
+}
+
+.login_window {
+  display: -webkit-flex;
+  display: flex;
+}
+
+.head {
+  padding: 5%;
+}
+
+.home-button {
+  width: 100%;
+  padding-left: 5%;
+}
+
+.login-button {
+  width: 100%;
+  text-align: right;
+}
+
+@media (min-width: 801px) {
+  h1 {
+    font-size: 50px;
+  }
+  .content {
+    display: -webkit-flex;
+    display: flex;
+  }
+  .login-button {
+    padding-right: 10%;
+  }
+}
+
+@media (max-width: 800px) {
+  * {
+    min-width: 48px;
+  }
+  #main-menu {
+    text-align: center;
+  }
+  #recent-items {
+    text-align: center;
+  }
+  #header {
+    padding: 2%;
+  }
+  .login-button {
+    padding-right: 5%;
+  }
+  .lists {
+    display: -webkit-flex;
+    display: flex;
+  }
+}

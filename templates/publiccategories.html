@@ -1,0 +1,66 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+
+<section class="flash">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li> <strong> {{ message }} </strong> </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+</section>
+<section id="content" class="content">
+  <section id="main-menu">
+    <h1 class="title">Katamari Item Catalog!</h1>
+    <p>
+      Browse items, and their descriptions and sizes,
+      from the game Katamari Damacy! Feel free to add items
+      that you've rolled up.
+    </p>
+    <a href="{{url_for('showLogin')}}">
+      <button id="login">Login Here</button>
+    </a>
+    <div id="category-list" class="list">
+      {% for category in categories %}
+      <h3>
+        <a href="{{url_for('showAllItems', category_name = category.name)}}">
+          {{category.name}}
+        </a>
+      </h3>
+      {% endfor %}
+    </div>
+    </section>
+    <section id="recent-items">
+    <h2>Newest Additions</h2>
+    <section class="lists">
+      <div id="newest-categories" class="list">
+        <h3>New Categories</h3>
+        {% for category in newest_category %}
+        <h4>
+          <a href="{{url_for('showAllItems', category_name = category.name)}}">
+            {{category.name}}
+          </a>
+        </h4>
+        {% endfor %}
+      </div>
+      <div id="newest-items" class="list">
+        <h3>New Items</h3>
+        {% for item in newest_item %}
+          {% for category in categories %}
+        <h4> {% if category.id == item.category_id %}
+          <a href="{{url_for('showOneItem', item_name = item.name, category_name = category.name)}}">
+            {{item.name}}
+          </a>
+        </h4>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+      </div>
+    </section>
+    </section>
+    </section>
+    {% endblock %}

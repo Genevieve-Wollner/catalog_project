@@ -1,0 +1,12 @@
+<section id="header">
+  <div class="home-button">
+    <a href="{{url_for('showCategories')}}">Home</a>
+  </div>
+  <div class="login-button">
+    {%if 'username' not in session %}
+      <a href="{{url_for('showLogin')}}">Log in</a>
+    {% else %}
+      <a href="{{url_for('gdisconnect')}}">Log Out</a>
+    {% endif %}
+  </div>
+</section>

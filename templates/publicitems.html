@@ -1,0 +1,37 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<section class="head">
+  <h1>{{category.name}}</h1>
+  <span>Created By:</span>
+  <span class="creator">{{creator.username}}</span>
+</section>
+<section class="flash">
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li> <strong> {{ message }} </strong> </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+</section>
+<section id="content">
+  <section id="item-list" class="list">
+    {% if items !=[] %}
+    <h2>Items</h2>
+    {% for i in items %}
+    <div class="item">
+      <a href="{{url_for('showOneItem', category_name=category.name, item_name=i.name)}}">
+        <h3>{{i.name}}</h3>
+      </a>
+      <p>{{i.description}}</p>
+      <p>{{i.size}}</p>
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+</section>
+
+{% endblock %}

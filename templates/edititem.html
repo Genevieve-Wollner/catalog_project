@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<section id="content">
+  <h1>Edit {{item.name}}</h1>
+  <form action="#" method="POST">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" maxlength="100" class="form-control" name="name" value="{{item.name}}">
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea name="description" maxlength="250" rows="3" class="form-control">{{item.description}}</textarea>
+    </div>
+    <div>
+      <label for="size">Size:</label>
+      <input type="text" maxlength="10" class="form-control" name="size" value="{{item.size}}">
+    </div>
+    <div>
+      <button id="submit" type="submit">Save</button>
+      <a href="{{url_for('showAllItems', category_name = category_name)}}">Cancel</a>
+    </div>
+  </form>
+</section>
+{% endblock %}
